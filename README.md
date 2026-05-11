@@ -121,3 +121,70 @@ BusApp/
 ├── mvnw
 ├── mvnw.cmd
 └── README.md
+ ```
+
+---
+## Setup
+
+### Prerequisites
+
+- JDK 17
+- Maven 3.6+
+- MySQL 8 running locally
+
+### 1. Database
+
+```sql
+CREATE DATABASE bus_reservation_db;
+```
+
+Default credentials in `application.properties` are `root` / `root`. Change username and password accroding to need.
+
+### 2. Google OAuth (optional)
+
+Get credentials from [Google Cloud Console](https://console.cloud.google.com/apis/credentials):
+
+1. Create a new OAuth 2.0 Client ID (type: Web application)
+2. Add `http://localhost:8080/login/oauth2/code/google` to authorized redirect URIs
+3. Copy the client ID and secret
+
+Set them as environment variables before running:
+
+```bash
+export GOOGLE_CLIENT_ID="your-client-id.apps.googleusercontent.com"
+export GOOGLE_CLIENT_SECRET="your-client-secret"
+```
+
+If you skip this, email/password login still works fine — the Google button will just fail with an OAuth error.
+
+### 3. Run
+
+```bash
+mvn clean spring-boot:run
+```
+
+Or build and run the WAR:
+
+```bash
+mvn clean package -DskipTests
+java -jar target/bus-reservation-system-1.0.0.war
+```
+
+App runs at `http://localhost:8080`. You'll be redirected to `/login` first.
+
+### 4. Create an account
+
+Sign up with email/password at `/signup`, or click "Continue with Google" if OAuth is configured.
+
+## API Endpoints
+
+| Method | Path | Purpose |
+|--------|------|---------|
+| POST | `/api/auth/signup` | Register new user |
+| POST | `/api/bus/register` | Register a bus |
+| GET  | `/api/bus/check-plate` | Check plate availability |
+| GET  | `/api/bus/details` | Get bus info + trips |
+| POST | `/api/bus/search` | Search available trips |
+| POST | `/api/trip/schedule` | Schedule a trip |
+| POST | `/api/seats/layout` | Get seat layout for a trip |
+| POST | `/api/booking/confirm` | Confirm seat booking |
