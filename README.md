@@ -188,3 +188,7 @@ Sign up with email/password at `/signup`, or click "Continue with Google" if OAu
 | POST | `/api/trip/schedule` | Schedule a trip |
 | POST | `/api/seats/layout` | Get seat layout for a trip |
 | POST | `/api/booking/confirm` | Confirm seat booking |
+
+## Contributor
+
+- **Pranay Chavan** 
