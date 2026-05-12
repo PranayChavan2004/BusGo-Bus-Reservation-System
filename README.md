@@ -170,11 +170,8 @@ mvn clean package -DskipTests
 java -jar target/bus-reservation-system-1.0.0.war
 ```
 
-App runs at `http://localhost:8080`. You'll be redirected to `/login` first.
+App runs at `http://localhost:8080`. You will be redirected to `/login` first.
 
-### 4. Create an account
-
-Sign up with email/password at `/signup`, or click "Continue with Google" if OAuth is configured.
 
 ## API Endpoints
 
