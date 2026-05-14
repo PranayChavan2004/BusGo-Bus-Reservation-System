@@ -1,14 +1,11 @@
 # 🚌 BusGo — Bus Reservation System
 
-A complete **bus reservation management** built using **Spring Boot**, **Spring Security**, **JSP** and **MySQL**.  
+A complete **bus reservation management** built using **Spring Boot**, **Spring**, **JSP** and **MySQL**.  
 The system allows operators to register buses, manage routes, schedule trips and enables passengers to search buses and reserve seats with real-time availability tracking.
 
 ---
 
 # 🚀 Features
-
-- 🔐 Secure authentication with Spring Security
-- 🔑 Google OAuth2 login integration
 - 🚌 Dynamic bus registration and seat layout generation
 - 🗺️ Route and stop management
 - 📅 Trip scheduling with overlap validation
@@ -17,7 +14,6 @@ The system allows operators to register buses, manage routes, schedule trips and
 - ⏱️ Automated trip status scheduler
 - ✅ Input validation using Bean Validation
 - ⚠️ Global exception handling
-- 🎨 Responsive user interface using Bootstrap 5
 
 ---
 
@@ -28,11 +24,8 @@ The system allows operators to register buses, manage routes, schedule trips and
 - Java 17
 - Spring Boot 2.7.14
 - Spring MVC
-- Spring Security
 - Spring Data JPA
 - Hibernate ORM
-- Spring Validation
-- OAuth2 Client
 
 ## 🗄️ Database
 
@@ -41,16 +34,9 @@ The system allows operators to register buses, manage routes, schedule trips and
 ## 🎨 Frontend
 
 - JSP
-- JSTL
 - HTML5
 - CSS3
 - Bootstrap 5.3
-
-## 🔐 Authentication & Security
-
-- Form-Based Authentication
-- BCrypt Password Encryption
-- Google OAuth2 Authentication
 
 ## 🛠️ Build & Deployment
 
@@ -140,22 +126,7 @@ CREATE DATABASE bus_reservation_db;
 
 Default credentials in `application.properties` are `root` / `root`. Change username and password accroding to need.
 
-### 2. Google OAuth (optional)
-
-Get credentials from [Google Cloud Console](https://console.cloud.google.com/apis/credentials):
-
-1. Create a new OAuth 2.0 Client ID (type: Web application)
-2. Add `http://localhost:8080/login/oauth2/code/google` to authorized redirect URIs
-3. Copy the client ID and secret
-
-Set them as environment variables before running:
-
-```bash
-export GOOGLE_CLIENT_ID="your-client-id.apps.googleusercontent.com"
-export GOOGLE_CLIENT_SECRET="your-client-secret"
-```
-
-If you skip this, email/password login still works fine — the Google button will just fail with an OAuth error.
+### 2. Login using email and password
 
 ### 3. Run
 
